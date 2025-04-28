@@ -1,0 +1,77 @@
+name: Sync Organization Labels
+
+on:
+  # Run whenever labels.yml changes
+  push:
+    paths:
+      - 'labels.yml'
+    branches:
+      - main
+  
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      specific_repo:
+        description: 'Specific repository to sync (leave empty for all)'
+        required: false
+        default: ''
+
+jobs:
+  sync-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: Install github-label-sync
+        run: npm install -g github-label-sync
+
+      - name: Get organization repositories
+        id: get-repos
+        if: ${{ github.event.inputs.specific_repo == '' }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.ORG_TOKEN }}
+          script: |
+            const orgName = context.repo.owner;
+            const repos = await github.paginate(
+              github.rest.repos.listForOrg,
+              {
+                org: orgName,
+                per_page: 100
+              }
+            );
+            
+            // Filter public, non-archived repositories
+            const repoNames = repos
+              .filter(repo => !repo.archived && !repo.disabled)
+              .map(repo => repo.name);
+              
+            console.log(`Found ${repoNames.length} active repositories`);
+            return repoNames;
+          result-encoding: json
+
+      - name: Sync labels to all repositories
+        if: ${{ github.event.inputs.specific_repo == '' }}
+        env:
+          REPOS: ${{ steps.get-repos.outputs.result }}
+          GITHUB_TOKEN: ${{ secrets.ORG_TOKEN }}
+        run: |
+          REPOS_ARRAY=$(echo $REPOS | jq -c '.')
+          for repo in $(echo $REPOS_ARRAY | jq -r '.[]'); do
+            echo "Syncing labels to $repo..."
+            github-label-sync --access-token $GITHUB_TOKEN --labels labels.yml ${{ github.repository_owner }}/$repo
+          done
+
+      - name: Sync labels to specific repository
+        if: ${{ github.event.inputs.specific_repo != '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ORG_TOKEN }}
+        run: |
+          echo "Syncing labels to ${{ github.event.inputs.specific_repo }}..."
+          github-label-sync --access-token $GITHUB_TOKEN --labels labels.yml ${{ github.repository_owner }}/${{ github.event.inputs.specific_repo }}
