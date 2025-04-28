@@ -1,0 +1,23 @@
+blank_issues_enabled: true
+contact_links:
+  - name: DAO Community Discussion
+    url: https://github.com/orgs/City-Nouns/discussions
+    about: Please ask and answer questions about the DAO here
+  - name: Governance Documentation
+    url: https://city-nouns.github.io/docs/governance
+    about: Check the governance documentation for process information
+
+# Configuration for the issue template chooser UI
+# This will organize how the templates appear when creating a new issue
+templates:
+  - name: Smart Contract Development
+    about: Template for tasks related to smart contract creation or modification
+    filename: smart-contract.md
+    
+  - name: DAO Governance Task
+    about: Template for governance proposals, votes, and treasury actions
+    filename: dao-governance.md
+    
+  - name: API Integration
+    about: Template for new API integrations or modifications
+    filename: api-integration.md
