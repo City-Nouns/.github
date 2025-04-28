@@ -1,56 +1,55 @@
 ---
 name: DAO Governance Task
-about: Template for governance proposals, votes, and treasury actions
+about: Template for governance-related tasks and proposals
 title: '[GOVERNANCE] '
 labels: ['governance']
 assignees: ''
 ---
 
-## Proposal Information
-**Proposal Type**:
-<!-- Select type: Treasury Action, Protocol Change, Parameter Update, Membership, Other -->
+## Governance Task Overview
+**Task Type**:
+<!-- Specify: Proposal Creation, Voting Mechanism, Parameter Change, etc. -->
 
-**Proposal Summary**:
-<!-- Brief summary of what this governance action aims to accomplish -->
+**Purpose**:
+<!-- Describe the purpose of this governance task -->
 
-**Proposal Motivation**:
-<!-- Explain why this action is necessary or beneficial -->
+## Requirements
+**Functionality**:
+<!-- List the specific functionality or changes required -->
 
-## Voting Requirements
-**Quorum Needed**:
-<!-- Specify the minimum participation required for valid vote -->
+**Dependencies**:
+<!-- List any contracts, mechanisms, or systems this will interact with -->
 
-**Approval Threshold**:
-<!-- Percentage of votes needed to pass -->
+**Stakeholders**:
+<!-- List the stakeholders who need to be involved or informed -->
 
-**Voting Period**:
-<!-- Start and end dates for voting -->
+## Governance Process
+**Required Steps**:
+- [ ] Draft proposal
+- [ ] Community discussion
+- [ ] Technical review
+- [ ] Formal submission
+- [ ] Voting period
+- [ ] Implementation (if passed)
 
-**Eligible Voters**:
-<!-- Which token holders or DAO members can vote -->
+**Voting Parameters**:
+<!-- Specify any special voting parameters if applicable -->
+
+## Security Considerations
+**Impact Assessment**:
+<!-- Assess the potential impact of this change -->
+
+**Required Reviews**:
+- [ ] Technical review
+- [ ] Economic/game theory review
+- [ ] Legal review (if applicable)
 
 ## Implementation Details
-**Action Items**:
-<!-- List specific actions that will be taken if approved -->
-
 **Implementation Timeline**:
-<!-- When and how the proposal will be implemented if passed -->
+<!-- Proposed timeline for implementation -->
 
-**Resources Required**:
-<!-- Treasury funds, technical resources, or other assets needed -->
-
-## Security and Risk Assessment
-**Potential Risks**:
-<!-- Identify any risks associated with this proposal -->
-
-**Mitigation Strategies**:
-<!-- How identified risks will be addressed -->
-
-## Communication Plan
-- [ ] Announcement to DAO members
-- [ ] Forum discussion thread
-- [ ] Vote notification
-- [ ] Results publication
+**Required Resources**:
+<!-- List the resources needed to implement this change -->
 
 ## Additional Information
-<!-- Any other relevant details about this proposal -->
+<!-- Any other relevant information about this governance task -->
