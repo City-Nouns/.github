@@ -1,60 +1,59 @@
 ---
 name: API Integration
-about: Template for new API integrations or modifications
+about: Template for tasks related to API integrations and webhooks
 title: '[API] '
 labels: ['api-integration']
 assignees: ''
 ---
 
 ## Integration Overview
-**Integration Purpose**:
-<!-- Describe what this API integration will accomplish -->
-
 **Integration Type**:
-<!-- External API consumption, Webhook provider, Internal API endpoint, etc. -->
+<!-- Specify: Webhook, Authentication, Data Sync, External Service, etc. -->
 
-**Priority Level**:
-<!-- High/Medium/Low -->
+**Purpose**:
+<!-- Describe the purpose of this API integration -->
 
 ## Technical Requirements
+**Endpoints**:
+<!-- List the endpoints or services that need to be integrated -->
+
 **Authentication Method**:
-<!-- OAuth, API Keys, JWT, etc. -->
+<!-- Specify the authentication method (OAuth, API Keys, JWT, etc.) -->
 
-**Endpoints Needed**:
-<!-- List all endpoints this integration will use -->
-
-**Data Formats**:
-<!-- JSON, XML, GraphQL, etc. -->
-
-**Rate Limits/Quotas**:
-<!-- Any rate limiting considerations -->
+**Data Flow**:
+<!-- Describe the data flow between systems -->
 
 ## Implementation Details
-**Integration Components**:
-- [ ] Authentication implementation
-- [ ] Data mapping/transformation
-- [ ] Error handling
-- [ ] Retry logic
-- [ ] Logging and monitoring
+**Libraries/Frameworks**:
+<!-- Specify any libraries or frameworks to be used -->
 
-**Dependencies**:
-<!-- List any libraries, services, or other dependencies -->
+**Rate Limiting Considerations**:
+<!-- Note any rate limiting concerns -->
 
-## Testing Requirements
-- [ ] Unit tests
-- [ ] Integration tests
-- [ ] Load/performance tests
-- [ ] Sandbox/staging environment testing
+**Error Handling Strategy**:
+<!-- Describe how errors will be handled -->
 
 ## Security Considerations
-- [ ] Data sensitivity assessment
-- [ ] Required security measures
-- [ ] Compliance requirements (if applicable)
+**Data Privacy Requirements**:
+<!-- List any data privacy requirements -->
 
-## Documentation Needs
-- [ ] Internal usage documentation
-- [ ] API reference documentation
-- [ ] Example code
+**Security Checks**:
+- [ ] Input validation
+- [ ] Output sanitization
+- [ ] Secure credential storage
+- [ ] Rate limiting protection
+- [ ] Logging and monitoring
+
+## Testing Requirements
+- [ ] Unit tests for all endpoints
+- [ ] Integration tests with external services
+- [ ] Load/performance testing (if applicable)
+- [ ] Error case testing
+
+## Documentation Requirements
+- [ ] API documentation updates
+- [ ] Internal documentation
+- [ ] User-facing documentation (if applicable)
 
 ## Additional Information
-<!-- Any other relevant details -->
+<!-- Any other relevant information about this API integration -->
