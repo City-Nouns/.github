@@ -1,0 +1,99 @@
+# DAO Kanban Label Configuration
+# Use with github-label-sync or similar tool to apply
+
+labels:
+  # Category Labels
+  - name: "smart-contract"
+    color: "0E8A16"
+    description: "Smart contract development tasks"
+    
+  - name: "smart-contract:security"
+    color: "0E8A16"
+    description: "Security-related smart contract tasks"
+    
+  - name: "smart-contract:upgrade"
+    color: "0E8A16"
+    description: "Contract upgrade tasks"
+    
+  - name: "governance"
+    color: "1D76DB"
+    description: "DAO governance related tasks"
+    
+  - name: "governance:proposal"
+    color: "1D76DB"
+    description: "Governance proposal development"
+    
+  - name: "governance:voting"
+    color: "1D76DB"
+    description: "Voting mechanism tasks"
+    
+  - name: "api-integration"
+    color: "D93F0B"
+    description: "API integration tasks"
+    
+  - name: "api-integration:webhook"
+    color: "D93F0B"
+    description: "Webhook related integrations"
+    
+  - name: "api-integration:authentication"
+    color: "D93F0B"
+    description: "Authentication related API tasks"
+    
+  - name: "treasury"
+    color: "FBCA04"
+    description: "Treasury management tasks"
+    
+  - name: "documentation"
+    color: "5319E7"
+    description: "Documentation tasks"
+    
+  - name: "community"
+    color: "FEF2C0"
+    description: "Community management tasks"
+    
+  # Status Labels
+  - name: "status:needs-review"
+    color: "C2E0C6"
+    description: "Needs technical review"
+    
+  - name: "status:in-testing"
+    color: "C5DEF5"
+    description: "Currently in testing"
+    
+  - name: "status:security-audit"
+    color: "FF0000"
+    description: "Needs security audit"
+    
+  - name: "status:ready-for-vote"
+    color: "BFDADC"
+    description: "Ready for governance vote"
+    
+  # Priority Labels
+  - name: "priority:critical"
+    color: "B60205"
+    description: "Critical priority, address immediately"
+    
+  - name: "priority:high"
+    color: "D93F0B"
+    description: "High priority"
+    
+  - name: "priority:medium"
+    color: "FBCA04"
+    description: "Medium priority"
+    
+  - name: "priority:low"
+    color: "0E8A16"
+    description: "Low priority"
+    
+  # Type Labels
+  - name: "type:bug"
+    color: "D73A4A"
+    description: "Something isn't working"
+    
+  - name: "type:feature"
+    color: "0075CA"
+    description: "New feature or request"
+    
+  - name: "type:enhancement"
+    color: "A2EEEF"
+    description: "Improvement to existing features"
