@@ -1,0 +1,70 @@
+name: Kanban Board Automation
+
+on:
+  issues:
+    types: [opened, closed, reopened, labeled, unlabeled]
+  pull_request:
+    types: [opened, closed, reopened, ready_for_review]
+
+jobs:
+  move_new_issues:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && github.event.action == 'opened'
+    steps:
+      - name: Move new issues to Triage
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: DAO Operations
+          column: Triage
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+  move_labeled_issues:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && github.event.action == 'labeled'
+    steps:
+      - name: Move high priority issues to In Progress
+        if: contains(github.event.issue.labels.*.name, 'priority:high')
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: DAO Operations
+          column: In Progress
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Move security audit labeled issues to Security Review
+        if: contains(github.event.issue.labels.*.name, 'security-audit')
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: DAO Operations
+          column: Security Review
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+  move_closed_issues:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && github.event.action == 'closed'
+    steps:
+      - name: Move closed issues to Done
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: DAO Operations
+          column: Done
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+  move_pull_requests:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Move new PRs to Code Review
+        if: github.event.action == 'opened' || github.event.action == 'ready_for_review'
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: DAO Operations
+          column: Code Review
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Move merged PRs to Done
+        if: github.event.action == 'closed' && github.event.pull_request.merged == true
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: DAO Operations
+          column: Done
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
